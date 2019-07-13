@@ -3,7 +3,7 @@
 
 A Python script to create custom perk icons for Dead By Daylight.
 
-#Usage
+## Usage
 ---
 `python dbdIconMaker.py <1 to copy perks into game files, 0 to do it manually> "<Path to DBD>"  "Name of background image"`
 
@@ -11,7 +11,7 @@ Example:
 `python dbdIconMaker.py 1 "C:\Program Files (x86)\Steam\steamapps\common\Dead by Daylight" "rainbow.jpg"`
 
 
-#Requirements
+## Requirements
 ---
 Requires [ImageMagick](https://imagemagick.org/script/download.php). Install for your OS.
 Requires Python 3.
