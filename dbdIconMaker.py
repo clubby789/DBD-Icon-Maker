@@ -1,4 +1,4 @@
-import os, zipfile, sys
+import os, zipfile, sys, argparse
 from wand.image import Image
 from wand.display import display
 from distutils.dir_util import copy_tree
@@ -8,12 +8,15 @@ def zipdir(path, ziph):
 		for file in files:
 			ziph.write(os.path.join(root, file))
 
-if len(sys.argv) < 4:
-	print("Wrong number of arguments")
-	quit()
-copyback = sys.argv[1]
-dbdpath = sys.argv[2]
-background = sys.argv[3]
+parser = argparse.ArgumentParser()
+parser.add_argument("copyback", help="Should icons be copied back? (0 or 1)", type=int)
+parser.add_argument("dbdpath", help="Base DBD path in Steam", type=str)
+parser.add_argument("backgroundimage", help="Background image to apply to perks",type=str)
+args = parser.parse_args()
+
+copyback = args.copyback
+dbdpath = args.dbdpath
+background = args.backgroundimage
 
 dbdpath = os.path.join(dbdpath, 'DeadByDaylight/Content/UI/Icons/Perks')
 basepath = os.path.dirname(os.path.realpath(__file__))
